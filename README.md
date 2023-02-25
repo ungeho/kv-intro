@@ -1,6 +1,5 @@
-"# kv-intro"
+# kv-intro
 
-"# kv-intro"
 
 自分用
 
