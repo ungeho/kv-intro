@@ -4,12 +4,16 @@
 #include <kv/rdd.hpp>
 #include <kv/mpfr.hpp>
 
-// #define MPFR_FLG
-// #define DD_FLG
 
-#ifdef MPFR_FLG
-    typedef kv::interval<kv::mpfr<106>> itv;
-#ifdef DD_FLG
+/*
+ITV_FLG
+区間の値をdoubleにする場合は0を設定
+double-doubleにする場合は1を設定
+コンパイルは  g++ func.cpp -O3 -DNDEBUG
+*/
+#define ITV_FLG 1
+
+#if ITV_FLG == 1
     typedef kv::interval<kv::dd> itv;
 #else
     typedef kv::interval<double> itv;
