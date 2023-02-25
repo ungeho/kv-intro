@@ -2,7 +2,6 @@
 #include <kv/interval.hpp>
 #include <kv/dd.hpp>
 #include <kv/rdd.hpp>
-#include <kv/mpfr.hpp>
 
 
 /*
