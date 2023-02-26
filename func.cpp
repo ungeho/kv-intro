@@ -2,17 +2,22 @@
 #include <kv/interval.hpp>
 #include <kv/dd.hpp>
 #include <kv/rdd.hpp>
-
+#include <kv/mpfr.hpp>
+#include <kv/rmpfr.hpp>
 
 /*
 ITV_FLG
 区間の値をdoubleにする場合は0を設定
 double-doubleにする場合は1を設定
 コンパイルは  g++ func.cpp -O3 -DNDEBUG
+mpfrラッパーを使う場合は2を設定
+コンパイルは g++ func.cpp -lmpfr -O3 -DNDEBUG
 */
-#define ITV_FLG 1
+#define ITV_FLG 2
 
-#if ITV_FLG == 1
+#if ITV_FLG == 2
+    typedef kv::interval<kv::mpfr<53>> itv;
+#elif ITV_FLG == 1
     typedef kv::interval<kv::dd> itv;
 #else
     typedef kv::interval<double> itv;
