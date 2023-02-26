@@ -7,10 +7,12 @@
 
 /*
 ITV_FLG
-区間の値をdoubleにする場合は0を設定
-double-doubleにする場合は1を設定
+区間の値をdoubleにする場合はITV_FLGに0を設定
+double-doubleにする場合はITV_FLGに1を設定
 コンパイルは  g++ func.cpp -O3 -DNDEBUG
-mpfrラッパーを使う場合は2を設定
+mpfrを使う場合はITV_FLGに2を設定
+kv::mpfr<N>のNは精度(bit)を設定
+単精度24bit倍精度53bit四倍精度113bit八倍精度237bit
 コンパイルは g++ func.cpp -lmpfr -O3 -DNDEBUG
 */
 #define ITV_FLG 2
