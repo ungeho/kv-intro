@@ -11,14 +11,18 @@ ITV_FLG
 double-doubleにする場合はITV_FLGに1を設定
 コンパイルは  g++ func.cpp -O3 -DNDEBUG
 mpfrを使う場合はITV_FLGに2を設定
-kv::mpfr<N>のNは精度(bit)を設定
+kv::mpfr<PREC>のPRECは精度(bit)を設定
 単精度24bit倍精度53bit四倍精度113bit八倍精度237bit
 コンパイルは g++ func.cpp -lmpfr -O3 -DNDEBUG
 */
 #define ITV_FLG 2
 
 #if ITV_FLG == 2
-    typedef kv::interval<kv::mpfr<53>> itv;
+    //精度
+    #define PREC 53
+    //表示桁数
+    #define DIGIT 17
+    typedef kv::interval<kv::mpfr<PREC>> itv;
 #elif ITV_FLG == 1
     typedef kv::interval<kv::dd> itv;
 #else
@@ -38,7 +42,7 @@ int main(void)
     itv x,res;
     x = "0.1";
     res = func(x);
-    std::cout.precision(17);
+    std::cout.precision(DIGIT);
     std::cout << "  x  = " << x << '\n';
     std::cout << "f(x) = " << res << '\n';
     return 0;
