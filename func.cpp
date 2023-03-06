@@ -20,7 +20,7 @@ kv::mpfr<PREC>のPRECは精度(bit)を設定
     // 精度(bit)
     // 単精度24bit倍精度53bit四倍精度113bit八倍精度237bit
     #define PREC 53
-    // 桁数（decimal）精度に合わせて変更
+    // 桁数(decimal)精度に合わせて変更
     #define DIGIT 17
 typedef kv::interval<kv::mpfr<PREC>> itv;
 #elif ITV_FLG == 1
